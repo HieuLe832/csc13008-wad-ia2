@@ -79,3 +79,15 @@ How I check "done":
 - row 8: type `<img src=x onerror=alert(1)>` -> no alert, no broken image,
   status shows No products match "`<img src=x onerror=alert(1)>`" literally
 - row 10: no red errors
+
+## Part B — prompt B3 (no reload on Enter)
+
+Task: do TODO B3 in app.js.
+- Listen for 'submit' on the search form (searchInput.form), call
+  event.preventDefault(), then applyFilter().
+- Do not change the form in index.html and do not remove the submit button.
+
+How I check "done":
+- row 9: type cap, press Enter -> the address bar does NOT change to ?q=cap
+  and the cart count is still there
+- row 3: Tab still reaches every Add except sold-out, and Search
