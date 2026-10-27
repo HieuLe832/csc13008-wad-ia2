@@ -91,3 +91,19 @@ How I check "done":
 - row 9: type cap, press Enter -> the address bar does NOT change to ?q=cap
   and the cart count is still there
 - row 3: Tab still reaches every Add except sold-out, and Search
+
+## Part B — prompt B4 (stretch: cart total)
+
+Task: do the B4 part of renderCart() in app.js.
+- Total = sum of (count x price) for each id in cart. Read the price from
+  data-price of the card with that data-id; it is a STRING, convert with
+  Number() before multiplying.
+- Write ' · ' + total.toLocaleString('vi-VN') + ' đ' into cartTotal with
+  textContent. Empty cart -> write '' (nothing).
+- Must include products added by "Load more" (Belt = 140.000 đ).
+
+How I check "done":
+- Add T-shirt x2 + Cap x1 -> Cart (3) · 455.000 đ
+- Load more, Add Belt -> total goes up by 140.000 đ
+- rows 1 to 11 of Done means all still hold;
+  git diff --stat `<starter>` shows only index.html and app.js
