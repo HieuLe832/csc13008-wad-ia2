@@ -36,18 +36,17 @@ catalogue.addEventListener('click', (event) => {
 
   const card = button.closest('.card');
   const id = card.dataset.id;
-  cart[id] = (cart[id] || 0) + 1;
+  const price = Number(card.dataset.price);
+  cart[id] = { qty: (cart[id]?.qty || 0) + 1, price };
   renderCart();
 });
 
 function renderCart() {
-  const count = Object.values(cart).reduce((sum, n) => sum + n, 0);
+  const items = Object.values(cart);
+  const count = items.reduce((sum, item) => sum + item.qty, 0);
+  const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
   cartCount.textContent = count;
-
-  // Stretch B4: also write ' · 540.000 đ' into cartTotal.
-  // Prices are in data-price on each card. dataset values are STRINGS:
-  // '180000' + 1 is '1800001'. Convert with Number() first.
-  // Format a number: total.toLocaleString('vi-VN') + ' đ'
+  cartTotal.textContent = count === 0 ? '' : ' · ' + total.toLocaleString('vi-VN') + ' đ';
 }
 
 // ---------------------------------------------------------------------------
