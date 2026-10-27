@@ -18,3 +18,10 @@ Asked for: TODO B2 in app.js (brief.md, prompt B2) — `applyFilter()` plus an `
 Kept: the whole result — the cards are queried on every call, so the ones added by "Load more" count; `card.hidden = !name.includes(query)`; status is `''` for an empty query, `Showing N of <all cards> products` when something matches, `No products match "<raw value>"` when nothing does (the raw `searchInput.value`, not the lower-cased one); `searchInput.addEventListener('input', applyFilter)`. The B3 form-submit part and the given "Load more" code are untouched.  
 Changed: nothing.  
 Rejected: nothing. Ran rows 7, 8 and 10 of Done means, all passed: after Load more, `scarf` and `SCARF` each show one card and "Showing 1 of 12 products", clearing the box brings all cards back and empties the status; typing `<img src=x onerror=alert(1)>` gives no alert and no broken image, and the status shows it literally as text; no red errors in the Console.  
+
+## 2026-10-27 — Part B3: no reload on Enter
+Tool: Claude Sonnet 5.5  
+Asked for: TODO B3 in app.js (brief.md, prompt B3) — listen for `submit` on the search form (`searchInput.form`), call `event.preventDefault()`, then `applyFilter()`. Do not change the form in index.html and keep the submit button.  
+Kept: the whole result — one `submit` listener on `searchInput.form` that calls `event.preventDefault()` and then `applyFilter()`. index.html, the Search button and the given "Load more" code are untouched.  
+Changed: nothing.  
+Rejected: nothing. Ran rows 9 and 3 of Done means, all passed: typing `cap` and pressing Enter does not change the address bar (no `?q=cap`), the cart count is still there, and the list is filtered; Tab still reaches every Add except the sold-out one, and Search. Console still shows 8/8 passed with no red errors. The assistant itself only ran a syntax check (`node --check app.js`); the browser checks were done by me.  
