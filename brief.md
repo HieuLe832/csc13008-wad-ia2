@@ -107,3 +107,13 @@ How I check "done":
 - Load more, Add Belt -> total goes up by 140.000 đ
 - rows 1 to 11 of Done means all still hold;
   git diff --stat `<starter>` shows only index.html and app.js
+
+## Part B — prompt B4, follow-up (after reading the assistant's code)
+
+```js
+const card = catalogue.querySelector('[data-id="' + id + '"]');
+```
+
+This string concatenation is kind of bad, isn't it? What do you think?
+Through the UI it works fine, but if I do it from the Console it will throw,
+right?
