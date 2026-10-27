@@ -58,3 +58,24 @@ How I check "done" (README Done means):
 - row 5: Tab to an Add, press Enter -> count +1
 - row 6: Load more, then Add on Belt -> count +1
 - row 1 and 10: still 8/8 passed, no red errors in the Console
+
+## Part B — prompt B2 (filter as you type)
+
+Task: do TODO B2 in app.js (applyFilter and its 'input' listener).
+- Read searchInput.value, trim(), toLowerCase().
+- For every .card (query it each time, so cards from "Load more" count):
+  card.hidden = true unless its .name text, lower-cased, contains the query.
+- Write ONE line into statusBox with textContent, never innerHTML:
+    empty query      -> '' and every card shown again
+    some match       -> 'Showing 1 of 12 products' (total = all cards now in the list)
+    nothing matches  -> 'No products match `"<exactly what the user typed>"`'
+  "Exactly what the user typed" = the raw value, not the lower-cased one.
+- Call applyFilter on every 'input' event of searchInput.
+
+How I check "done":
+- row 7: after Load more, type scarf, then SCARF -> one card and
+  "Showing 1 of 12 products" both times; clear the box -> all cards back,
+  status empty
+- row 8: type `<img src=x onerror=alert(1)>` -> no alert, no broken image,
+  status shows No products match "`<img src=x onerror=alert(1)>`" literally
+- row 10: no red errors
